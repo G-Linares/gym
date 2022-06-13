@@ -1,10 +1,9 @@
 import React from "react";
-import { Box, Stack, Typography, Button } from "@mui/material";
+import { Box,Typography, Button } from "@mui/material";
 
 import Hero from "../assets/images/banner.png";
 
 const HeroBanner = () => {
-    console.log(process.env.REACT_APP_RAPID_API_KEY)
   return (
     <Box
       sx={{
@@ -53,7 +52,7 @@ const HeroBanner = () => {
       >
         We're all gonna make it
       </Typography>
-      <img src={Hero} alt="hero banner image" className="hero-banner-img" />
+      <img src={Hero} alt="hero banner" className="hero-banner-img" />
     </Box>
   );
 };
