@@ -72,7 +72,7 @@ body {
     justify-content: space-between;
     flex-direction: column;
     padding-bottom: 10px;
-    transform: scale(.5, .5);
+    transform: scale(1, 1);
     transition: 0.3s all ease-in-out;
   }
   
