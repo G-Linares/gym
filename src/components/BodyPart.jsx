@@ -1,7 +1,5 @@
 import React from 'react'
 import {Stack, Typography} from "@mui/material";
-// import Icon from '../assets/images/icon.png'
-// importa todas los iconos
 
 const BodyPart = ({item, setBodyPart, bodyPart}) => {
 

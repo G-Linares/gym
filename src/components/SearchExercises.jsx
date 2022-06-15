@@ -39,6 +39,29 @@ const SearchExercises = ({setExercises, bodyPart,setBodyPart}) => {
     }
   };
 
+  const handleKeyDown = async(event) => {
+    if (event.key === 'Enter') {
+      if (search) {
+        const exercisesData = await fetchData(
+          "https://exercisedb.p.rapidapi.com/exercises",
+          exerciseOptions
+        );
+  
+        const searchedExercises = exercisesData.filter(
+          (exercise) =>
+            exercise.name.toLowerCase().includes(search) ||
+            exercise.target.toLowerCase().includes(search) ||
+            exercise.equipment.toLowerCase().includes(search) ||
+            exercise.bodyPart.toLowerCase().includes(search)
+        );
+  
+        setSearch('');
+        setExercises(searchedExercises);
+  
+      }
+    }
+  }
+
   return (
     <Stack alignItems="center" mt="37px" justifyContent="center" p="20px">
       <Typography
@@ -63,6 +86,7 @@ const SearchExercises = ({setExercises, bodyPart,setBodyPart}) => {
           placeholder="Busca Ejercicios"
           type="text"
           color="error"
+          onKeyDown={handleKeyDown}
           focused
         />
         <Button

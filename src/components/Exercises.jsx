@@ -16,8 +16,10 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
 
   }
 
+  const indexOfLastExercise = currentPage * exercisesPerPage;
+  const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
+  const currentExercises = exercises.slice(indexOfFirstExercise, indexOfLastExercise)
 
-  console.log(exercises);
   return (
     <Box id="exercises" sx={{ mt: { lg: "110px" } }} mt="50px" p="20px">
       <Typography variant="h3" mb="46px">
@@ -29,7 +31,7 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
         flexWrap="wrap"
         justifyContent="center"
       >
-        {exercises.map((exercise, index) => {
+        {currentExercises.map((exercise, index) => {
           return <ExerciseCard key={ new Date() + index} exercise={exercise}/>
         })}
       </Stack>
