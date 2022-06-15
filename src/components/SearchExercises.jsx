@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { exerciseOptions, fetchData } from "../utils/fetchData";
 
+import Loader from "./Loader";
 import HorizontalScrollbar from "./HorizontalScrollbar";
 
 const SearchExercises = ({setExercises, bodyPart,setBodyPart}) => {
@@ -109,7 +110,15 @@ const SearchExercises = ({setExercises, bodyPart,setBodyPart}) => {
         </Button>
       </Box>
       <Box sx={{position:'relative', width:'100%', p:'20px'}}>
-          <HorizontalScrollbar isBodyParts data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart}/>
+
+
+      {bodyParts.length ? (
+        <HorizontalScrollbar isBodyParts data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart}/>
+          ) : (
+            <Loader />
+          )}
+
+         
       </Box>
     </Stack>
   );
